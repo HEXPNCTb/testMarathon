@@ -59,8 +59,8 @@ node_exporter_port = 9100
 
 ami           = "ami-015cbce10f839bd0c"
 ec2_name_set  = ["react", "angular", "dotnet", "prometheus", "grafana"]
-sgs           = []
 subnet        = ""
+sgs           = []
 instance_type = "t3.micro"
 iam_role_policies = {
   AdministratorAccess = "arn:aws:iam::aws:policy/AdministratorAccess",
