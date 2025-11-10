@@ -59,6 +59,10 @@ export class ParticipantCard {
   public readonly iconInfo = IconName.Info;
   public readonly ariaLabelInfo = AriaLabel.Info;
 
+  
+  public readonly iconDelete = IconName.Delete;
+  public readonly ariaLabelDelete = AriaLabel.DeleteButton;
+
   @HostBinding('tabindex') tab = 0;
   @HostBinding('class.list-row') rowClass = true;
 
@@ -119,6 +123,27 @@ export class ParticipantCard {
     if (target instanceof HTMLElement) {
       this.#popup.hide(target);
     }
+  }
+  public onDeleteClick(): void {
+    const id = this.participant().id;
+    this.#userService
+      .deleteUser(id)
+      .pipe(
+        tap(({ status }) => {
+          if (status === 200) {
+            const container = this.#host.nativeElement.closest(
+              'app-participant-list'
+            ) as HTMLElement;
+            this.#popup.show(
+              container,
+              PopupPosition.Right,
+              { message: 'Participant deleted', type: MessageType.Success },
+              false
+            );
+          }
+        })
+      )
+      .subscribe();
   }
 
   #openModal(): void {
