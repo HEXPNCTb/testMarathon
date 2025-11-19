@@ -84,4 +84,4 @@ db_subnet_group_name = "rds-private-subnet-group"
 ################################################################################
 
 domain_name = "hexmarathon.pp.ua"
-certificate_arn = "arn:aws:acm:eu-central-1:367966165804:certificate/ff17a945-0ba1-4cfb-8c9b-476530d4cc9b"
+certificate_arn = "arn:aws:acm:eu-central-1:367966165804:certificate/721b307b-c6b1-4ba4-93a9-22c7816f57a3"
